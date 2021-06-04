@@ -57,29 +57,41 @@
         <div class="row">
             <div class="col-7 border border-dark" id="pantalla">
                 <!-- DIV PARA METER IMAGEN DENTRO  -->
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-6" class="caja"><img src="img/img0.png"></div>
+                <div class="row d-flex flex-row align-items-center justify-content-center m-2">
+                    <div class="col-12 border border dark"><center><img src="img/img0.png"></center></div>
                 </div>
+                
             </div>
             <div class="col-5 border border-dark" id="word">
                 <!-- DIV PARA PONER LA PALABRA OCULTA -->
                 <div class="row d-flex flex-column align-items-center">
-                    <!-- ESTE DIV ES PARA LA PALABRA EN SI -->
-                    <div class="col-8 border border-dark m-4" id="oculto"></div>
-                    <!-- ESTE DIV ES PARA PONER LOS BOTONES DEBAJO DE LA PALABRA OCULTA -->
-                    <div class="col-8 d-flex flex-row align-items-center justify-content-center">
-                    <button id="play" class="btn btn-primary m-2">Iniciar Juego</button>
-                    <button id="res" class="btn btn-primary m-2">Resolver</button>
+                    <!-- DIV PARA LA CASILLA DE VIDAS -->
+                    <div class="row d-flex flex-row align-items-center justify-content-center border border-dark mt-5">
+                        <div class="col"><center><img src="img/vida.png" width="50px" height="50px"></center></div>
+                        <div class="col" id="VIDA">VIDAS RESTANTES</div>
+
                     </div>
+                    
+                    <!-- ESTE DIV ES PARA PONER BOTONES DE PISTA -->
+                    <div class="col-8 col-md-8  d-flex flex-row align-items-center justify-content-center mt-3">
+                    <button id="key1" class="btn btn-warning m-2"></button>
+                    <button id="key2" class="btn btn-warning m-2"></button>
+                    <button id="key3" class="btn btn-warning m-2"></button>
+                    <button id="key4" class="btn btn-warning m-2"></button>
+                    <button id="key5" class="btn btn-warning m-2"></button>
+                    </div>
+                    <!-- ESTE DIV ES PARA LA PISTA -->
+                    <div class="col-8 col-md-6 border border-dark m-4" id="pista"></div>
                 </div>
             </div>
 
 
         </div>
         <!-- Parte del teclado -->
-        <div class="row m-3 align-items-center justify-content-center">
-            <div class=".col-12 .col-md-8 border border-dark ">
+        <div class="row m-1 d-flex align-items-center justify-content-center">
+            <div class="col-7 .col-md-6 border border-dark ">
                 <br>
+                <div class="botones">
                 <button id="A">A</button>
                 <button id="B">B</button>
                 <button id="C">C</button>
@@ -107,7 +119,19 @@
                 <button id="X">X</button>
                 <button id="Y">Y</button>
                 <button id="Z">Z</button>
-
+                </div>
+            </div>
+            <div class="col-5 border border-dark">
+                <!-- DIV PARA PONER LA PALABRA OCULTA -->
+                <div class="row d-flex flex-column align-items-center">
+                    <!-- ESTE DIV ES PARA LA PALABRA EN SI -->
+                    <div class="col-8 flex-wrap border border-dark m-4" id="oculto"></div>
+                    <!-- ESTE DIV ES PARA PONER LOS BOTONES DEBAJO DE LA PALABRA OCULTA -->
+                    <div class="col-8 d-flex flex-row align-items-center justify-content-center">
+                    <button id="play" class="btn btn-primary m-2">Iniciar Juego</button>
+                    <button id="res" class="btn btn-primary m-2">Resolver</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

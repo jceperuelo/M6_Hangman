@@ -7,4 +7,35 @@
 #oculto {
     height: 150px;
 }
-.caja {border: 4px dashed black;}
+
+button {
+    border-radius: 10px;
+    background-color:rgb(99, 99, 99);
+    color:white;
+    width: 50px;
+    height: 50px;
+    margin: 3px;
+    align-items: center;
+    align-self: center;
+
+    font-weight: 700;
+}
+
+button:hover{
+    background-color:rgb(117, 117, 117);}
+
+    #play{
+        width: 150px;
+    }
+
+    #res{
+        width: 100px;
+    }
+
+.estilos {
+    height: 300px;
+}
+
+#pista {
+    height: 50px;
+}
