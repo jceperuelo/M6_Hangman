@@ -57,19 +57,35 @@ var inicio = (id) => {
 var juego = (letra) => {};
 
 var turno = (letra) => {
-  if (!gameover) {
-    $("#" + letra).prop("disabled", true);
-    if (!compruebaLetra(letra.toString())) {
-      intentos_totales--;
-      console.log("no está!");
-    } else console.log("Si está !");
-    letras_dichas.push(letra);
-    imprimir();
+  $("#" + letra).prop("disabled", true);
+  if (!compruebaLetra(letra.toString())) {
+    intentos_totales--;
+    console.log("no está!");
+  } else console.log("Si está !");
+  letras_dichas.push(letra);
+  imprimir();
+  if (!imprimeLetra().includes("_")) {
+    hasganado();
   }
+  if (intentos_totales == 0) {
+    gameover();
+  }
+};
+
+var hasganado = () => {
+  console.log("has ganado");
+};
+
+var gameover = () => {
+  console.log("has perdido");
 };
 
 var imprimir = () => {
   $(pista).html(imprimeLetra());
+  $(corazon).html("");
+  for (let i = 0; i < intentos_totales; i++) {
+    $(corazon).append('<img src="img/vida.png">');
+  }
 };
 
 var imprimeLetra = () => {
