@@ -38,13 +38,57 @@ var intentos_realizados = 0;
 var intentos_totales = 10;
 var letras_dichas = [];
 var id_palabra = 0;
+var gameover = false;
 
-var inicio = () => {
-  if ((dificultad = 1)) {
-    intentos_realizados = 8;
+var inicio = (id) => {
+  //seteamos la dificultad
+  if (dificultad == 1) {
+    intentos_totales = 8;
   } else if (dificultad == 2) {
-    intentos_realizados = 6;
+    intentos_totales = 6;
   }
+  //seteamos las variables
+  game_over = false;
+  intentos_realizados = 0;
+  id_palabra = id;
+  letras_dichas = [];
+};
+
+var juego = (letra) => {};
+
+var turno = (letra) => {
+  if (!gameover) {
+    $("#" + letra).prop("disabled", true);
+    if (!compruebaLetra(letra.toString())) {
+      intentos_totales--;
+      console.log("no está!");
+    } else console.log("Si está !");
+    letras_dichas.push(letra);
+    imprimir();
+  }
+};
+
+var imprimir = () => {
+  $(pista).html(imprimeLetra());
+};
+
+var imprimeLetra = () => {
+  let temp = palabras[id_palabra].split("");
+  let temp2 = "";
+
+  for (let i = 0; i < temp.length; i++) {
+    if (letras_dichas.includes(temp[i])) {
+      temp2 += temp[i];
+    } else temp2 += "_";
+  }
+  return temp2;
+};
+
+var compruebaLetra = (Letra) => {
+  let temp = palabras[id_palabra].split("");
+  if (temp.includes(Letra)) {
+    return true;
+  } else return false;
 };
 
 var palabras = [
