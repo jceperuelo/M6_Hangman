@@ -20,7 +20,7 @@
 </head>
 <body>
     <!-- Zona de la navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="#"><img src="img/ahorcado.png" width="50px" height="50px"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,10 +31,10 @@
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item dropdown">
+              </li> -->
+              <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Dropdown
                 </a>
@@ -44,21 +44,21 @@
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="#">Something else here</a></li>
                 </ul>
-              </li>
+              </li> -->
             </ul>
           </div>
         </div>
       </nav>
     <!-- Fin de la navbar -->
-    <div class="container-fluid">
+    <div class="container-fluid bg-success">
         <br>
-        <h2><center>  HANGMAN </center></h2>
+        <h2><center> <b>HANGMAN</b>  </center></h2>
         <br>
         <div class="row">
             <div class="col-7 border border-dark" id="pantalla">
                 <!-- DIV PARA METER IMAGEN DENTRO  -->
                 <div class="row d-flex flex-row align-items-center justify-content-center m-2">
-                    <div class="col-12 border border dark"><center><img src="img/img0.png"></center></div>
+                    <div class="col-12 bg-light m-3"><center><img src="img/img0.png"></center></div>
                 </div>
                 
             </div>
@@ -66,22 +66,26 @@
                 <!-- DIV PARA PONER LA PALABRA OCULTA -->
                 <div class="row d-flex flex-column align-items-center">
                     <!-- DIV PARA LA CASILLA DE VIDAS -->
-                    <div class="row d-flex flex-row align-items-center justify-content-center border border-dark mt-5">
-                        <div class="col"><center><img src="img/vida.png" width="50px" height="50px"></center></div>
+                    <div class="row d-flex flex-row align-items-center justify-content-center mt-5">
+                        <div class="col">
+                            <div id="corazon">
+                                <center><img src="img/vida.png" width="50px" height="50px"></center>
+                            </div>
+                        </div>
                         <div class="col" id="VIDA">VIDAS RESTANTES</div>
 
                     </div>
                     
                     <!-- ESTE DIV ES PARA PONER BOTONES DE PISTA -->
                     <div class="col-8 col-md-8  d-flex flex-row align-items-center justify-content-center mt-3">
-                    <button id="key1" class="btn btn-warning m-2"></button>
-                    <button id="key2" class="btn btn-warning m-2"></button>
-                    <button id="key3" class="btn btn-warning m-2"></button>
-                    <button id="key4" class="btn btn-warning m-2"></button>
-                    <button id="key5" class="btn btn-warning m-2"></button>
+                    <button id="key1" class="btn btn-danger m-2"><img id="imagen" src="img/pista.png" width="25px" height="25px"></button>
+                    <button id="key2" class="btn btn-danger m-2"><img id="imagen" src="img/pista.png" width="25px" height="25px"></button>
+                    <button id="key3" class="btn btn-danger m-2"><img id="imagen" src="img/pista.png" width="25px" height="25px"></button>
+                    <button id="key4" class="btn btn-danger m-2"><img id="imagen" src="img/pista.png" width="25px" height="25px"></button>
+                    <button id="key5" class="btn btn-danger m-2"><img id="imagen" src="img/pista.png" width="25px" height="25px"></button>
                     </div>
                     <!-- ESTE DIV ES PARA LA PISTA -->
-                    <div class="col-8 col-md-6 border border-dark m-4" id="pista"></div>
+                    <div class="col-8 col-md-6 border border-dark m-4 bg-light" id="pista"></div>
                 </div>
             </div>
 
@@ -91,8 +95,8 @@
         <div class="row m-1 d-flex align-items-center justify-content-center">
             <div class="col-7 .col-md-6 border border-dark ">
                 <br>
-                <div class="botones">
-                <button id="A">A</button>
+                <div class="botones_teclado">
+                <button onclick="" id="A">A</button>
                 <button id="B">B</button>
                 <button id="C">C</button>
                 <button id="D">D</button>
@@ -121,11 +125,11 @@
                 <button id="Z">Z</button>
                 </div>
             </div>
-            <div class="col-5 border border-dark">
+            <div class="col-5">
                 <!-- DIV PARA PONER LA PALABRA OCULTA -->
                 <div class="row d-flex flex-column align-items-center">
                     <!-- ESTE DIV ES PARA LA PALABRA EN SI -->
-                    <div class="col-8 flex-wrap border border-dark m-4" id="oculto"></div>
+                    <div class="col-8 flex-wrap border border-dark m-4 bg-light" id="oculto"></div>
                     <!-- ESTE DIV ES PARA PONER LOS BOTONES DEBAJO DE LA PALABRA OCULTA -->
                     <div class="col-8 d-flex flex-row align-items-center justify-content-center">
                     <button id="play" class="btn btn-primary m-2">Iniciar Juego</button>

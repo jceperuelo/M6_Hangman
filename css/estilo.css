@@ -1,3 +1,7 @@
+* {
+    font-family: 'Arial Narrow Bold';
+}
+
 #pantalla {
     height: 300px;
 }
@@ -32,10 +36,19 @@ button:hover{
         width: 100px;
     }
 
-.estilos {
+/* .estilos {
     height: 300px;
-}
+} */
 
 #pista {
     height: 50px;
+}
+
+.botones_teclado {
+    border: 4px solid black;
+    margin-left: 20px;
+}
+
+button:disabled{
+    background-color: red;
 }
