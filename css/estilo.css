@@ -1,0 +1,10 @@
+#pantalla {
+    height: 300px;
+}
+#word {
+    height: 300px;
+}
+#oculto {
+    height: 150px;
+}
+.caja {border: 4px dashed black;}
