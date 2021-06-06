@@ -1,55 +1,76 @@
-* {
-    font-family: 'Arial Narrow Bold';
+#corazon img{
+  width: 30px;
 }
 
-#pantalla {
-    height: 300px;
-}
-#word {
-    height: 300px;
-}
-#oculto {
-    height: 150px;
+#teclado{
+  text-align: center;
 }
 
+#botones_pista{
+  margin-top: 22px;
+  text-align: center;
+}
+
+#palabra{
+  font-size: xxx-large;
+  text-align: center;
+  letter-spacing: 12px;
+  align-items: center;
+}
+
+#teclado button:disabled, #botones_pista button:disabled{
+  background-color: red;
+}
+
+/* ESTILOS PARA LA PANTALLA DE INICIO Y LOS BOTONES DE DIFICULTAD */
+
+#dificultad{
+  background-color: seagreen;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top :0;
+  text-align: center;
+  font-size: 60px;
+}
+
+#dificultad button{
+  margin-top: 23px;
+  font-size:large;
+  width: 100px;
+  height: 50px;
+  border-radius: 10%;
+  background-color: green;
+}
+
+#dificultad button:hover{
+  background-color: yellowgreen;
+}
+
+/* //PARA DEFINIR EL ESTILO DE LOS BOTONES// */
 button {
-    border-radius: 10px;
-    background-color:rgb(99, 99, 99);
-    color:white;
-    width: 50px;
-    height: 50px;
-    margin: 3px;
-    align-items: center;
-    align-self: center;
+  border-radius: 10px;
+  background-color:rgb(99, 99, 99);
+  color:white;
+  width: 50px;
+  height: 50px;
+  margin: 3px;
+  align-items: center;
+  align-self: center;
 
-    font-weight: 700;
+  font-weight: 700;
 }
 
 button:hover{
-    background-color:rgb(117, 117, 117);}
+  background-color:rgb(117, 117, 117);}
 
-    #play{
-        width: 150px;
-    }
+  /* //PARA ALARGAR EL BOTON DE INICIAR// */
 
-    #res{
-        width: 100px;
-    }
+.boton {width: 150px;}
 
-/* .estilos {
-    height: 300px;
-} */
-
-#pista {
-    height: 50px;
+#titulo {
+  font-size:xx-large;
 }
 
-.botones {
-    border: 1px solid black;
-    background-color: seagreen;
-    margin: 16px;
-}
 
-button:disabled{
-    background-color: red;
-}
+

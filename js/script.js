@@ -1,33 +1,3 @@
-var alfabeto = [
-  "A",
-  "B",
-  "C",
-  "D",
-  "E",
-  "F",
-  "G",
-  "H",
-  "I",
-  "J",
-  "K",
-  "L",
-  "M",
-  "N",
-  "Ñ",
-  "O",
-  "P",
-  "Q",
-  "R",
-  "S",
-  "T",
-  "U",
-  "V",
-  "W",
-  "X",
-  "Y",
-  "Z",
-];
-
 //eventos
 
 //getElements//
@@ -36,30 +6,29 @@ var jugar = document.getElementById("play");
 var volver = document.getElementById("res");
 
 var dificultad = 0;
-var intentos_realizados = 0;
 var intentos_totales = 10;
 var letras_dichas = [];
 var id_palabra = 0;
-var gameover = false;
 
-var inicio = (id) => {
-  //seteamos la dificultad
-  if (dificultad == 1) {
-    intentos_totales = 8;
-  } else if (dificultad == 2) {
-    intentos_totales = 6;
-  }
+var inicio = (dif) => {
+  $("#pista").html("");
+  $("#iniciar").prop("disabled", true);
+  $(".botones_teclado").prop("disabled", false);
+  $(".botones_pista").prop("disabled", false);
+  imprimir();
+  intentos_totales = dif;
   //seteamos las variables
   game_over = false;
-  intentos_realizados = 0;
-  id_palabra = id;
+  id_palabra = Math.floor(Math.random() * palabras.length);
   letras_dichas = [];
+  imprimir();
+  $("#dificultad").hide();
 };
 
 var juego = (letra) => {};
 
 var turno = (letra) => {
-  $("#" + letra).prop("disabled", true);
+  $("#" + letra.toUpperCase()).prop("disabled", true);
   if (!compruebaLetra(letra.toString())) {
     intentos_totales--;
     console.log("no está!");
@@ -75,18 +44,23 @@ var turno = (letra) => {
 };
 
 var hasganado = () => {
-  console.log("has ganado");
+  deshabilitar();
+  $("#palabra").html("Has ganado !!");
+  $("#iniciar").prop("disabled", false);
 };
 
 var gameover = () => {
-  console.log("has perdido");
+  deshabilitar();
+  $("#palabra").html("Has perdido");
+  $("#iniciar").prop("disabled", false);
 };
 
 var imprimir = () => {
-  $(palabra).html(imprimeLetra());
-  $(corazon).html("");
+  $("#ahorcado").attr("src", "img/a" + (10 - intentos_totales) + ".png");
+  $("#palabra").html(imprimeLetra());
+  $("#corazon").html("");
   for (let i = 0; i < intentos_totales; i++) {
-    $(corazon).append('<img src="img/vida.png">');
+    $("#corazon").append('<img src="img/vida.png">');
   }
 };
 
@@ -195,10 +169,36 @@ var pistas = [
   ],
 ];
 
-// Assign a function to deal with the onclick event:
-document.getElementById("E").onclick = turno("e");
+//
+var yo;
+window.onload = function (event) {
+  $(".botones_teclado").click(function () {
+    turno($(this).attr("id").toLowerCase());
+  });
+  $(".botones_pista").click(function () {
+    pista($(this).attr("id"));
+  });
+  $("#iniciar").click(function () {
+    pregunta();
+  });
 
-// or use an anonymous function:
-document.getElementById("id").onclick = function () {
-  // do magic
+  deshabilitar();
+};
+
+var pista = (id) => {
+  if (intentos_totales > 1) {
+    intentos_totales--;
+    $("#" + id).prop("disabled", true);
+    $("#pista").html(pistas[id_palabra][id - 1]);
+    imprimir();
+  }
+};
+
+var deshabilitar = () => {
+  $(".botones_teclado").prop("disabled", true);
+  $(".botones_pista").prop("disabled", true);
+};
+
+var pregunta = () => {
+  $("#dificultad").show();
 };
